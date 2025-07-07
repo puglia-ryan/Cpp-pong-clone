@@ -5,6 +5,7 @@
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
+#include <SFML/Window/Mouse.hpp>
 #include <SFML/Window/VideoMode.hpp>
 #include <SFML/Window/WindowStyle.hpp>
 #include <cstdio>
@@ -15,6 +16,7 @@ int main() {
                           sf::Style::Default);
   sf::RectangleShape player(sf::Vector2f(100, 100));
   player.setFillColor(sf::Color::Blue);
+  player.setOrigin(50.0f, 50.0f);
   while (window.isOpen()) {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -45,6 +47,11 @@ int main() {
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
       player.move(0.0f, 0.1f);
+    }
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+      sf::Vector2i mousePos = sf::Mouse::getPosition(window); 
+      player.setPosition((float)mousePos.x, (float)mousePos.y);
     }
     window.clear();
     window.draw(player);

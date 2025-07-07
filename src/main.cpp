@@ -4,6 +4,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/VideoMode.hpp>
 #include <SFML/Window/WindowStyle.hpp>
 #include <cstdio>
@@ -13,6 +14,7 @@ int main() {
   sf::RenderWindow window(sf::VideoMode(800, 600), "Pong Clone",
                           sf::Style::Default);
   sf::RectangleShape player(sf::Vector2f(100, 100));
+  player.setFillColor(sf::Color::Blue);
   while (window.isOpen()) {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -31,6 +33,20 @@ int main() {
         break;
       }
     }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+      player.move(-0.1f, 0.0f);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+      player.move(0.1f, 0.0f);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
+      player.move(0.0f, -0.1f);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
+      player.move(0.0f, 0.1f);
+    }
+    window.clear();
     window.draw(player);
     window.display();
   }

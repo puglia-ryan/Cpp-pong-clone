@@ -14,7 +14,7 @@ class Ball{
     void setVelocity(const sf::Vector2f& velocity);
 
     float getRadius() const;
-    sf::Vector2f setPosition() const;
+    sf::Vector2f getPosition() const;
     sf::FloatRect getGlobalBounds() const;
 
   private:

@@ -12,7 +12,7 @@ class Paddle{
     sf::Vector2f getPosition();
   private:
     sf::RectangleShape mShape;
-    float speed = 300.f;
+    float mSpeed = 300.f;
     sf::Keyboard::Key mUpKey;
     sf::Keyboard::Key mDownKey;
 };

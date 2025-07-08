@@ -43,3 +43,9 @@ void Game::processEvents() {
     }
   }
 }
+
+void Game::update(float dt) {
+  mPlayer1.update(dt);
+  mPlayer2.update(dt);
+  mBall.update(dt);
+}

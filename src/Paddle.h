@@ -9,7 +9,7 @@ class Paddle{
     void update(float dt);
     void draw(sf::RenderWindow& window) const;
     sf::FloatRect getGlobalBounds() const;
-    sf::Vector2f getPosition();
+    sf::Vector2f getPosition() const;
   private:
     sf::RectangleShape mShape;
     float mSpeed = 300.f;

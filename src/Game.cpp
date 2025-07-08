@@ -49,3 +49,32 @@ void Game::update(float dt) {
   mPlayer2.update(dt);
   mBall.update(dt);
 }
+
+void Game::handleCollisions() {
+  // Ball top and bottom
+  auto pos = mBall.getPosition();
+  if (pos.y - mBall.getRadius() < 0.f || pos.y + mBall.getRadius() > WindowHeight) {
+    mBall.bounceY();
+  }
+
+  // Ball and Paddles
+  if (mBall.getGlobalBounds().intersects(mPlayer1.getGlobalBounds())) {
+    mBall.bounceX();
+  }
+  if (mBall.getGlobalBounds().intersects(mPlayer2.getGlobalBounds())) {
+    mBall.bounceX();
+  }
+
+  // After scoring
+  if (pos.x + mBall.getRadius() < 0.f) {
+    ++mScore2;
+    resetBall();
+  }
+  if (pos.x + mBall.getRadius() > WindowWidth) {
+    ++mScore1;
+    resetBall();
+  }
+
+  mScoreText1.setString(std::to_string(mScore1));
+  mScoreText2.setString(std::to_string(mScore2));
+}

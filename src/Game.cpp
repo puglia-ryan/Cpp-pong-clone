@@ -23,3 +23,14 @@ Game::Game()
 
     resetBall();
   }
+
+void Game::run() {
+  sf::Clock clock;
+  while (mWindow.isOpen()) {
+    float dt = clock.restart().asSeconds();
+    processEvents();
+    update(dt);
+    handleCollisions();
+    render();
+  }
+}

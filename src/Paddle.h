@@ -7,7 +7,7 @@ class Paddle{
   public:
     Paddle(const sf::Vector2f& position, const sf::Vector2f& size, sf::Keyboard::Key upKey, sf::Keyboard::Key downKey);
     void update(float dt);
-    void draw(sf::RenderWindow&);
+    void draw(sf::RenderWindow& window) const;
     sf::FloatRect getGlobalBounds() const;
     sf::Vector2f getPosition();
   private:

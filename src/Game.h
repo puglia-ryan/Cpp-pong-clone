@@ -23,6 +23,7 @@ class Game{
     Paddle mPlayer1;
     Paddle mPlayer2;
     Ball mBall;
+    sf::Font mFont;
     sf::Text mScoreText1;
     sf::Text mScoreText2;
     unsigned mScore1;

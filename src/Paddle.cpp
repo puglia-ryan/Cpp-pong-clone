@@ -30,3 +30,15 @@ void Paddle::update(float dt){
     mShape.setPosition(pos.x, 600.f - halfH);
   }
 }
+
+void Paddle::draw(sf::RenderWindow& window) const {
+  window.draw(mShape);
+}
+
+sf::FloatRect Paddle::getGlobalBounds() const {
+  return mShape.getGlobalBounds();
+}
+
+sf::Vector2f Paddle::getPosition() const {
+  return mShape.getPosition();
+}

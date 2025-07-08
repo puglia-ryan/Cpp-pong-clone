@@ -11,8 +11,8 @@ class Paddle{
     sf::FloatRect getGlobalBounds() const;
     sf::Vector2f getPosition();
   private:
-    sf::RectangleShape shape;
-    float speed = 400.f;
+    sf::RectangleShape mShape;
+    float speed = 300.f;
     sf::Keyboard::Key mUpKey;
     sf::Keyboard::Key mDownKey;
 };

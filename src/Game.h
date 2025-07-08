@@ -9,7 +9,7 @@ class Game{
     void run();
 
   private:
-    void processEvent();
+    void processEvents();
     void update(float dt);
     void render();
     void handleCollisions();

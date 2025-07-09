@@ -78,3 +78,21 @@ void Game::handleCollisions() {
   mScoreText1.setString(std::to_string(mScore1));
   mScoreText2.setString(std::to_string(mScore2));
 }
+
+void Game::resetBall() {
+  mBall.setPosition(WindowWidth / 2.f, WindowHeight / 2.f);
+  // Random initial direction
+  float vx = (std::rand() % 2 ? +1 : -1) * 300.f;
+  float vy = (std::rand() % 2 ? +1 : -1) * 200.f;
+  mBall.setVelocity({vx, vy});
+}
+
+void Game::render() {
+  mWindow.clear(sf::Color::Black);
+  mPlayer1.draw(mWindow);
+  mPlayer2.draw(mWindow);
+  mBall.draw(mWindow);
+  mWindow.draw(mScoreText1);
+  mWindow.draw(mScoreText2);
+  mWindow.display();
+}

@@ -26,6 +26,6 @@ class Game{
     sf::Font mFont;
     sf::Text mScoreText1;
     sf::Text mScoreText2;
-    unsigned mScore1;
-    unsigned mScore2;
+    unsigned mScore1 = 0;
+    unsigned mScore2 = 0;
 };
